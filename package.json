@@ -1,0 +1,23 @@
+{
+  "name": "nodeapp",
+  "version": "1.0.0",
+  "description": "Sample Node App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishm27/nodejs.git"
+  },
+  "author": "Manish Muthumanickam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manishm27/nodejs/issues"
+  },
+  "homepage": "https://github.com/manishm27/nodejs#readme",
+  "devDependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.14.0"
+  }
+}
