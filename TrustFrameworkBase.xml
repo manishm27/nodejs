@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -322,14 +322,16 @@
         </OutputClaims>
       </ClaimsTransformation>
 
+
       <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
         <InputClaims>
-          <InputClaim ClaimTypeReferenceId="userPrincipalName" TransformationClaimType="inputClaim" />
+          <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
         </InputClaims>
         <OutputClaims>
           <OutputClaim ClaimTypeReferenceId="userPrincipalName" TransformationClaimType="outputClaim" />
         </OutputClaims>
       </ClaimsTransformation>
+
 
       <ClaimsTransformation Id="CreateRandomUPNUserName" TransformationMethod="CreateRandomString">
         <InputParameters>
@@ -348,7 +350,6 @@
           <InputParameter Id="valueToCompareTo" DataType="boolean" Value="true" />
         </InputParameters>
       </ClaimsTransformation>
-
       <!--claims transformation for refresh token revocation -->
       <ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
         <InputClaims>
