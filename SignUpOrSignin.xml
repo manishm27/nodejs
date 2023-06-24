@@ -21,7 +21,25 @@
     <UserJourneyBehaviors>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="bfa49971-2879-44f2-a2c2-84a09d522950" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     </UserJourneyBehaviors>
-    <TechnicalProfile Id="PolicyProfile">
+    <TechnicalProfile Id="PolicyProfile">  <!--Step 1: Add the following attributes to the <TrustFrameworkPolicy> element
+  DeploymentMode="Development"
+  UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+  -->
+
+  <!--Step 2: Add the following node immediately after the DefaultUserJourney element-->
+  <UserJourneyBehaviors>
+  	<JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="bfa49971-2879-44f2-a2c2-84a09d522950" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+  </UserJourneyBehaviors>
+  <!--Step 1: Add the following attributes to the <TrustFrameworkPolicy> element
+  DeploymentMode="Development"
+  UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+  -->
+
+  <!--Step 2: Add the following node immediately after the DefaultUserJourney element-->
+  <UserJourneyBehaviors>
+  	<JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="bfa49971-2879-44f2-a2c2-84a09d522950" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+  </UserJourneyBehaviors>
+
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="OpenIdConnect"/>
       <OutputClaims>
@@ -29,6 +47,7 @@
         <OutputClaim ClaimTypeReferenceId="givenName" />
         <OutputClaim ClaimTypeReferenceId="surname" />
         <OutputClaim ClaimTypeReferenceId="email" />
+        <OutputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="upn"/>
         <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
         <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
       </OutputClaims>
